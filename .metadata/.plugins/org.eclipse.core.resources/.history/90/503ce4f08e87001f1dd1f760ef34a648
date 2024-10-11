@@ -1,0 +1,31 @@
+package com.taining.package1;
+
+public class TC007_UseStatic {
+	
+	static int a = 20;
+	static int b;
+	
+	static {
+		
+		System.out.println("inside static block");
+		b = a*10;
+	}
+	
+	public static void addNumbers(int c) {
+		
+		
+		System.out.println("a :"+a);
+		System.out.println("b :"+b);
+		System.out.println("c :"+c);
+		System.out.println("Addition of numbers : "+ (a + b + c));
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		addNumbers(10);
+
+	}
+
+}

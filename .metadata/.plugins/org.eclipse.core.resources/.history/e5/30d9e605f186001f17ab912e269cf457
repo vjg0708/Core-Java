@@ -1,0 +1,18 @@
+package com.taining.package1;
+
+public class Lab_003 {
+	
+	public static void main(String[] args) {
+		
+		Person createPerson = new Person("Ajith", "Kumar", 'M');
+		
+		System.out.println("Person Details");
+		System.out.println("______________________");
+		
+		
+		System.out.println("First Name : " + createPerson.getFirstName()+"\n"
+				+"Last Name : " + createPerson.getLastName() + "\n"
+				+"Gender : " + createPerson.getGender());
+	}
+
+}

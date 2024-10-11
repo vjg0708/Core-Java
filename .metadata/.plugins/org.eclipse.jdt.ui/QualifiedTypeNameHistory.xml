@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.taining.package1.Box"/>
+    <fullyQualifiedTypeName name="com.training.package2.Student"/>
+    <fullyQualifiedTypeName name="com.training.package2.Teacher"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.taining.package1.Balance"/>
+    <fullyQualifiedTypeName name="com.taining.package1.Person"/>
+</qualifiedTypeNameHistroy>

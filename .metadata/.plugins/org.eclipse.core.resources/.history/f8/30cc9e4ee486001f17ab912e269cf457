@@ -1,0 +1,25 @@
+package com.taining.package1;
+
+public class TC001_Variables {
+	
+	private static double dbWidth =10;
+	private static double dbheight = 20;
+	private static double dbLength = 30;
+	
+	private static int boxId;
+	
+	static public double calcVolume() {
+		
+		double doubleTemp;
+		doubleTemp = dbheight*dbLength*dbWidth;
+		
+		return doubleTemp;
+	}
+	
+	public static void main(String[] args) {
+		
+		System.out.println(calcVolume());
+	}
+	
+	
+}

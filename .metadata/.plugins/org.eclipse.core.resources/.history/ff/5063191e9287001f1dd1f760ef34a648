@@ -1,0 +1,20 @@
+package com.taining.package1;
+
+public class Lab_003 {
+	
+	public static void main(String[] args) {
+		
+		Person createPerson = new Person("Ajith", "Kumar", 'M',30,78.5);
+		
+		createPerson.setPhoneNumber(92883419347l);
+		
+		System.out.println("Person Details");
+		System.out.println("______________________");
+		System.out.println();
+		
+		createPerson.displayPersonDetails();
+		
+		
+	}
+
+}
