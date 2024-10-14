@@ -13,6 +13,7 @@ class ChipCardmachine extends Swipemachine{
 	
 	public void readCard() {
 		
+		//super.readCard();
 		System.out.println("In Chip card machine");
 	}
 }
