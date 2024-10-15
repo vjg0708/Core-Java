@@ -40,12 +40,12 @@ public class Lab_004 {
 			break;
 			
 		case 4:
-			for(int i=0;i<input.length();i++) {
+			for(int i=0;i<input.length()-1;i++) {
 				if(i%2==0) {
 					continue;
 				}
 				else {
-					resultString = input.replace(input.charAt(i));
+					resultString = 
 				}
 			}
 			
