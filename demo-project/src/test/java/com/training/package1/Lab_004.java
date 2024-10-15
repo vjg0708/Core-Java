@@ -26,31 +26,10 @@ public class Lab_004 {
 			
 			break;
 			
-		case 3:
-			StringBuilder tempStr = new StringBuilder();
-			boolean isFound = false;
-			
-			for(int i=0;i<input.length();i++) {
-				char ch = input.charAt(i);
-				if(tempStr.isEmpty()) {
-					tempStr.append(ch);
-				}
-				else if() {}
-			}
-			break;
-			
-		case 4:
-			for(int i=0;i<input.length()-1;i++) {
-				if(i%2==0) {
-					continue;
-				}
-				else {
-					resultString = 
-				}
-			}
-			
 			
 		}
+		
+		return resultString;
 		
 
 	}
@@ -70,7 +49,9 @@ public class Lab_004 {
 		int inputChoice = sc.nextInt();
 		
 		System.out.println("The opertion performed on choice "+ 
-		inputChoice +" is :" );
+		inputChoice +" is :" + perfromOperations(inputString, inputChoice) );
+		
+		
 	}
 
 }
