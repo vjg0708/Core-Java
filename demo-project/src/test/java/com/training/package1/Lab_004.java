@@ -82,7 +82,7 @@ public class Lab_004 {
 		
 		int inputChoice = sc.nextInt();
 		
-		System.out.println("The opertion performed on choice "+ 
+		System.out.println("The operation performed on choice "+ 
 		inputChoice +" is :" + perfromOperations(inputString, inputChoice) );
 		
 		

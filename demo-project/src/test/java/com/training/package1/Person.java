@@ -40,11 +40,10 @@ public class Person {
 
 
 
-	public Person(String firstName, String lastName, int age, double weight) {
+	public Person(String firstName, String lastName,  double weight) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.age = age;
 		this.weight = weight;
 	}
 	
@@ -98,17 +97,20 @@ public class Person {
 		System.out.println("First Name : " +firstName+"\n"
 				+"Last Name : " + lastName + "\n"
 				+"Gender : " + gender + "\n"
-				+"Age : " + age + "\n"
+				+"Age : " + this.calculateAge() + "\n"
 				+"Weight : " + weight+"\n"
 				+"Phone Number : " +phoneNumber);
 
 	}
 	
-	public long calculateAge() {
+	public int calculateAge() {
 		
 		Period getAge = dateOfBirth.until(LocalDate.now());
 		
-		return getAge.getYears();
+		this.setAge(getAge.getYears());
+		
+		return this.getAge();
+		
 		
 	}
 	

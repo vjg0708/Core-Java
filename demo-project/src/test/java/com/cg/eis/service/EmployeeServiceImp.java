@@ -8,27 +8,41 @@ public class EmployeeServiceImp implements IEmployeeService{
 	
 	@Override
 	public void addEmployeeDetails(long empid, String name,
-			double salary, String scheme, String desg) {
+			double salary, String desg) {
 		// TODO Auto-generated method stub
 				
 				useEmployee.setEmployeeId(empid);
 				useEmployee.setEmployeeName(name);
 				useEmployee.setEmployeeSalary(salary);
-				useEmployee.setInsuranceScheme(scheme);
 				useEmployee.setDesignation(desg);
 	}
 
 	@Override
-	public void checkInsuranceScheme() {
+	public void checkInsuranceScheme(String designation) {
 		// TODO Auto-generated method stub
 		
-		if(useEmployee.getEmployeeSalary()>=25000 && useEmployee.getDesignation()=="AssEng") {
+		if(designation.equals("Associate")) {
 			
-			System.out.println("The employee insurance scheme is : " + 
-			useEmployee.getInsuranceScheme());
+			useEmployee.setInsuranceScheme("Basic");
+			System.out.println("Insurance scheme : "+useEmployee.getInsuranceScheme());
+			
+		}
+		else if(designation.equals("SeniorAssociate")) {
+			
+			useEmployee.setInsuranceScheme("Intermediate");
+			System.out.println("Insurance scheme : "+useEmployee.getInsuranceScheme());
 		}
 		
-		System.out.println("Exit");
+		else if(designation.equals("TeamLead")) {
+			
+			useEmployee.setInsuranceScheme("Pearl");
+			System.out.println("Insurance scheme : "+useEmployee.getInsuranceScheme());
+		}
+		else if(designation.equals("Manager")) {
+			
+			useEmployee.setInsuranceScheme("Gold");
+			System.out.println("Insurance scheme : "+useEmployee.getInsuranceScheme());
+		}
 		
 	}
 

@@ -14,9 +14,28 @@ public class Lab_010 {
 		
 		IEmployeeService useService = new EmployeeServiceImp();
 		
-		useService.addEmployeeDetails(1001, "Harrish", 50000, "Basic", "AssEng");
+		Scanner sc = new Scanner(System.in);
 		
-		useService.checkInsuranceScheme();
+		
+		System.out.print("Enter id : ");
+		
+		long empid = sc.nextLong();
+		
+		System.out.print("Enter empName : ");
+		
+		String name = sc.next();
+		
+		System.out.print("Enter Salary : ");
+		
+		double salary = sc.nextDouble();
+		
+		System.out.print("Enter designation : ");
+		
+		String designation = sc.next();
+		
+		useService.addEmployeeDetails(empid, name, salary, designation);
+		
+		useService.checkInsuranceScheme(designation);
 		
 		useService.displayEmployeeDetails();
 	}

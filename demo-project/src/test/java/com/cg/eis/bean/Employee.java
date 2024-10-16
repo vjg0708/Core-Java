@@ -15,14 +15,12 @@ public class Employee {
 
 
 	public Employee(long employeeId, String employeeName,
-			double employeeSalary, String designation,
-			String insuranceScheme) {
+			double employeeSalary, String designation) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.employeeSalary = employeeSalary;
 		this.designation = designation;
-		this.insuranceScheme = insuranceScheme;
 	}
 
 
