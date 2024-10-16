@@ -2,6 +2,7 @@ package com.training.package1;
 import java.util.Scanner;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
@@ -24,7 +25,7 @@ public class Lab_007 {
 				+"Years"+" "+duration.get(ChronoUnit.MONTHS)+" "+"Months"+" "
 				+duration.get(ChronoUnit.DAYS)+" "+"Days");
 		
-		System.out.println(duration.getDays());
+		
 		
 	}
 }

@@ -6,7 +6,7 @@ public class EmployeeServiceImp implements IEmployeeService{
 	
 	Employee useEmployee = new Employee();
 	
-	
+	@Override
 	public void addEmployeeDetails(long empid, String name,
 			double salary, String scheme, String desg) {
 		// TODO Auto-generated method stub
@@ -35,7 +35,7 @@ public class EmployeeServiceImp implements IEmployeeService{
 	@Override
 	public void displayEmployeeDetails() {
 		// TODO Auto-generated method stub
-		System.err.println("The Employee Details are : "+ "\n"+
+		System.out.println("The Employee Details are : "+ "\n"+
 		useEmployee.toString());
 	}
 	

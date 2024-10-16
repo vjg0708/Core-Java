@@ -1,6 +1,6 @@
 package com.training.package1;
 
-public class Account {
+public abstract class Account {
 	
 	
 	private long accNumber ;
@@ -52,19 +52,7 @@ public class Account {
 		}
 	}
 	
-	public void withDrawAmount(double amount) {
-		
-		if((balance-amount)>500) {
-			
-			balance -=amount;
-			
-			System.out.println("amount withdrawn successfully with current balance : " + this.balance);
-		}
-		
-		else {
-			System.out.println("Insufficient balance");
-		}
-	}
+	public abstract void withDrawAmount(double amount);
 	@Override
 	public String toString() {
 		return "Account [accNumber=" + accNumber + ", balance=" + balance + ", accHolder=" + accHolder.getName() + ", " + accHolder.getAge() +"]";

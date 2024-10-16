@@ -17,7 +17,7 @@ public class Lab_009 {
 		
 		System.out.println();
 		
-		accForSmith.withDrawAmount(105000);
+		accForSmith.withDrawAmount(10000);
 		
 		System.out.println("For current account:");
 		
@@ -26,8 +26,11 @@ public class Lab_009 {
 		accForSmith2.withDrawAmount(105000);
 		
 		System.out.println(accForSmith.toString());
+		System.out.println(accForSmith2.toString());
 		
+		System.out.println();
 		
+		System.out.println("__________________________________________");
 		System.out.println();
 		
 		SavingsAccount accForkathy = new SavingsAccount(Account.generateAccNumber(), 78000,

@@ -16,18 +16,52 @@ public class Lab_004 {
 		
 		case 2:
 			for(int i = 0;i<input.length();i++) {
-				if(i%2==0) {
-					continue;
-				}
-				else {
+				if(i%2==1) {
 					resultString = input.replace(input.charAt(i), '#');
 				}
+				
 			}
 			
 			break;
 			
+		case 3:
+			StringBuilder str = new StringBuilder();
 			
+			for (int i=0;i<input.length();i++) {
+				
+				char ch = input.charAt(i);
+				if(str.indexOf(String.valueOf(ch))== -1) {
+					
+					str.append(ch);
+				}
+			}
+			
+			resultString = str.toString();
+			break;
+			
+		case 4:
+			StringBuilder str1 = new StringBuilder(input);
+			
+			for(int i = 0;i<input.length();i++) {
+				
+				if(i%2==1) {
+					
+					str1.setCharAt(i, Character.toUpperCase(input.charAt(i)));
+				}
+			}
+			
+			resultString = str1.toString();
+			break;
+			
+		default:
+			System.out.println("no valid choice");
+			break;
 		}
+		
+		
+		
+		
+			
 		
 		return resultString;
 		

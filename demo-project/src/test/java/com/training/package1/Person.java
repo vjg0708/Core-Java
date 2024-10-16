@@ -1,5 +1,8 @@
 package com.training.package1;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Person {
 	
 	String firstName;
@@ -8,7 +11,18 @@ public class Person {
 	double weight;
 	long phoneNumber;
 	CheckGender gender;
+	LocalDate dateOfBirth;
 	
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 	static enum CheckGender{
 		M,F;
 	}
@@ -90,5 +104,17 @@ public class Person {
 
 	}
 	
+	public long calculateAge() {
+		
+		Period getAge = dateOfBirth.until(LocalDate.now());
+		
+		return getAge.getYears();
+		
+	}
+	
+	public String getFullName() {
+		
+		return firstName + lastName;
+	}
 	
 }
