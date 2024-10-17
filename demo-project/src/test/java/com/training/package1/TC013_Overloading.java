@@ -7,6 +7,7 @@ class BoxType{
 	double height;
 	
 	BoxType(){
+		this(0,0,0);
 		System.out.println("Constructor without parameter");
 	}
 	

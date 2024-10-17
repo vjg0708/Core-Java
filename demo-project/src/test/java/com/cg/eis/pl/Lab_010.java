@@ -3,6 +3,7 @@ package com.cg.eis.pl;
 import java.util.Scanner;
 
 import com.cg.eis.bean.Employee;
+import com.cg.eis.exception.Lab016_InvalidSalaryException;
 import com.cg.eis.service.EmployeeServiceImp;
 import com.cg.eis.service.IEmployeeService;
 
@@ -33,7 +34,15 @@ public class Lab_010 {
 		
 		String designation = sc.next();
 		
-		useService.addEmployeeDetails(empid, name, salary, designation);
+		try {
+			
+			useService.addEmployeeDetails(empid, name, salary, designation);
+			
+		} catch (Lab016_InvalidSalaryException e) {
+			// TODO Auto-generated catch block
+			
+			System.out.println("Exception : " + e.displayMessage());
+		}
 		
 		useService.checkInsuranceScheme(designation);
 		

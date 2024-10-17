@@ -1,5 +1,7 @@
 package com.cg.eis.bean;
 
+import com.cg.eis.exception.Lab016_InvalidSalaryException;
+
 public class Employee {
 	
 	private long employeeId;
@@ -49,8 +51,17 @@ public class Employee {
 	}
 
 
-	public void setEmployeeSalary(double employeeSalary) {
-		this.employeeSalary = employeeSalary;
+	public void setEmployeeSalary(double employeeSalary) throws Lab016_InvalidSalaryException {
+		
+		if(employeeSalary<=3000) {
+			
+			throw new Lab016_InvalidSalaryException(employeeSalary);
+		}
+		else {
+			
+			this.employeeSalary = employeeSalary;
+		}
+		
 	}
 
 

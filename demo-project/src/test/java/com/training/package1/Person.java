@@ -55,7 +55,8 @@ public class Person {
 
 
 
-	public void setAge(int age) {
+	public void setAge(int age){
+		
 		this.age = age;
 	}
 
@@ -92,31 +93,42 @@ public class Person {
 		this.gender = gender;
 	}
 	
-	public void displayPersonDetails() {
+	public void displayPersonDetails() throws Lab015_InvalidAgeException  {
 		
 		System.out.println("First Name : " +firstName+"\n"
 				+"Last Name : " + lastName + "\n"
 				+"Gender : " + gender + "\n"
-				+"Age : " + this.calculateAge() + "\n"
+				+"Age : " + calculateAge(getDateOfBirth()) + "\n"
 				+"Weight : " + weight+"\n"
 				+"Phone Number : " +phoneNumber);
 
 	}
 	
-	public int calculateAge() {
+	public int calculateAge(LocalDate dob) throws Lab015_InvalidAgeException {
 		
-		Period getAge = dateOfBirth.until(LocalDate.now());
+		Period ageCal = dob.until(LocalDate.now());
 		
-		this.setAge(getAge.getYears());
+		setAge(ageCal.getYears());
+		
+		if(this.getAge()<15) {
+			
+			throw new Lab015_InvalidAgeException(this.getAge());
+		}
 		
 		return this.getAge();
 		
 		
+		
 	}
 	
-	public String getFullName() {
+	public String getFullName() throws Lab014_InvalidNameException {
 		
-		return firstName + lastName;
+		if(firstName.isBlank() && lastName.isBlank()) {
+			
+			throw new Lab014_InvalidNameException(lastName, firstName);
+		}
+		
+		return firstName + " " + lastName;
 	}
 	
 }

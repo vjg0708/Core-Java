@@ -1,6 +1,7 @@
 package com.cg.eis.service;
 
 import com.cg.eis.bean.Employee;
+import com.cg.eis.exception.Lab016_InvalidSalaryException;
 
 public class EmployeeServiceImp implements IEmployeeService{
 	
@@ -8,13 +9,14 @@ public class EmployeeServiceImp implements IEmployeeService{
 	
 	@Override
 	public void addEmployeeDetails(long empid, String name,
-			double salary, String desg) {
+			double salary, String desg) throws Lab016_InvalidSalaryException {
 		// TODO Auto-generated method stub
 				
 				useEmployee.setEmployeeId(empid);
 				useEmployee.setEmployeeName(name);
-				useEmployee.setEmployeeSalary(salary);
 				useEmployee.setDesignation(desg);
+				useEmployee.setEmployeeSalary(salary);
+				
 	}
 
 	@Override
