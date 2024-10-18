@@ -8,7 +8,12 @@ public class Lab016_ArraySort {
 		
 		Arrays.sort(input);
 		
-		System.out.println(Arrays.toString(input));
+		//System.out.println(Arrays.toString(input));
+		
+		for(String i : input) {
+			
+			System.out.println(i);
+		}
 	}
 	
 	public static void main(String[] args) {
