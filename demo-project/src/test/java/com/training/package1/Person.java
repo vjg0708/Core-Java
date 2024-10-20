@@ -123,7 +123,7 @@ public class Person {
 	
 	public String getFullName() throws Lab014_InvalidNameException {
 		
-		if(firstName.isBlank() && lastName.isBlank()) {
+		if(firstName.isEmpty() && lastName.isEmpty()) {
 			
 			throw new Lab014_InvalidNameException(lastName, firstName);
 		}
