@@ -44,7 +44,12 @@ public class Lab_010 {
 			System.out.println("Exception : " + e.displayMessage());
 		}
 		
-		useService.checkInsuranceScheme(designation);
+		System.out.print("Enter Insurance Scheme : ");
+		
+		String scheme = sc.next();
+		
+		System.out.println("Employee details of mentioned scheme : "+ 
+		scheme + " are : " + useService.getEmployeeFromScheme(scheme));
 		
 		useService.displayEmployeeDetails();
 	}
