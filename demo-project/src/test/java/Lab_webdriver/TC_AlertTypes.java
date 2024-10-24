@@ -1,11 +1,10 @@
 package Lab_webdriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class TC_AlertTypes {
 
@@ -16,6 +15,8 @@ public class TC_AlertTypes {
         driver.get("https://letcode.in/alert");
         driver.manage().window().maximize();
 
+        //sets timeout as 10sec to wait for whole web driver session, inorder to find and identify an element
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //simplealert
         driver.findElement(By.id("accept")).click();
@@ -39,16 +40,22 @@ public class TC_AlertTypes {
         promptAlert.sendKeys("Okay");
         promptAlert.dismiss();
 
+
+
         //modernalert
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         driver.findElement(By.id("modern")).click();
         WebElement modernAlert = driver.findElement(By.xpath("//div[@class='modal-background']"));
 
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         if(modernAlert.isDisplayed()){
 
             driver.findElement(By.xpath("//div/button[@aria-label='close']")).click();
             System.out.println("Displayed properly");
         }
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("alert('search testing methods')");
+
     }
 }
