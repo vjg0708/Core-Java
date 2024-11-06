@@ -3,11 +3,11 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="Suite">
          <classes>
-             <class name="TestNG.TestNG01">
+             <class name="testNG.TestNG01">
              </class>
-             <class name="TestNG.TestNGAmazon">
+             <class name="testNG.TestNGAmazon">
              </class>
-             <class name="TestNG.TestNGLogin">
+             <class name="testNG.TestNGLogin">
              </class>
          </classes>
     </test>

@@ -1,4 +1,4 @@
-package TestNG;
+package testNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,8 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pom_object_repository.POM_Amazon;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestNGAmazonv2 {
@@ -17,9 +22,14 @@ public class TestNGAmazonv2 {
     WebDriver driver;
     JavascriptExecutor js;
     POM_Amazon pomAmazon;
+    Properties properties;
+    String username1;
+    String password1;
+    String projectPath;
+    String url1;
 
-    @Test
-    public void startFlow() throws InterruptedException {
+    @Test(dataProvider = "getCredentials")
+    public void startFlow(String username, String password) throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -27,11 +37,11 @@ public class TestNGAmazonv2 {
 
         System.out.println("User login:");
         //sending and typing username
-        pomAmazon.typeTextByXpath("//*[@id=\"ap_email\"]", pomAmazon.getUsername());
+        pomAmazon.typeTextByXpath("//*[@id=\"ap_email\"]", username);
         pomAmazon.clickActionById("continue");
 
         //entering the password and signing in
-        pomAmazon.typeTextById("ap_password", pomAmazon.getPassword());
+        pomAmazon.typeTextById("ap_password", password);
         pomAmazon.clickActionById("signInSubmit");
 
         if(pomAmazon.checkElementsDisplayedByXpath("/html")){
@@ -90,10 +100,10 @@ public class TestNGAmazonv2 {
         pomAmazon.clickActionByXpath("//input[@id='add-to-cart-button']");
 
         //to check a popup for cart is displayed
-        if (pomAmazon.checkElementsDisplayedByXpath("/html/body/div[8]/div[3]/div[3]/div")){
+        if (pomAmazon.checkElementsDisplayedByXpath("//div[@class='a-scroller attach-accessory-section a-scroller-vertical']")){
 
             Assert.assertTrue(true);
-            pomAmazon.clickActionByXpath("/html/body/div[8]/div[3]/div[3]/div/div[1]/a");
+            pomAmazon.clickActionByXpath("//a[@id='attach-close_sideSheet-link']");
         }
         else{ Assert.fail();}
 
@@ -124,17 +134,18 @@ public class TestNGAmazonv2 {
     }
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws IOException {
+
 
         /*setup driver to open amazon*/
         System.out.println("Driver initialization and page loading");
-        driver.get("https://www.amazon.in/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.in%2F%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=inflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0");
+        driver.get(url1);
         driver.manage().window().maximize();
 
         System.out.println("Driver session started..");
         /*storing username and password*/
-        pomAmazon.setUsername("harrishvijay0708@gmail.com");
-        pomAmazon.setPassword("vijay#0780");
+        pomAmazon.setUsername(username1);
+        pomAmazon.setPassword(password1);
     }
 
     @AfterMethod
@@ -151,7 +162,20 @@ public class TestNGAmazonv2 {
     }
 
     @BeforeClass
-    public void beforeClass() {
+    public void beforeClass() throws IOException {
+
+        projectPath = System.getProperty("user.dir");
+
+        //getting credentials and URL from properties
+        properties = new Properties();
+        InputStream input = Files.newInputStream(Paths.get(projectPath + "\\amazonLogin.properties"));
+
+        properties.load(input);
+
+        url1 = properties.getProperty("url");
+        username1 = properties.getProperty("username");
+        password1 = properties.getProperty("password");
+
 
         /*setting up chrome driver*/
 
@@ -164,6 +188,8 @@ public class TestNGAmazonv2 {
         System.out.println("creating POM object..");
         pomAmazon = new POM_Amazon(driver);
 
+
+
         js = (JavascriptExecutor) driver;
     }
 
@@ -173,5 +199,16 @@ public class TestNGAmazonv2 {
         driver.quit();
 
         System.out.println("Driver session closed");
+    }
+
+    @DataProvider
+    public Object[][] getCredentials() {
+
+        return new Object[][]{
+
+                new Object[]{username1, password1}
+        };
+
+
     }
 }

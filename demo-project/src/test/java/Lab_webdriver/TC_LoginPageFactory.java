@@ -1,15 +1,15 @@
 package Lab_webdriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pom_object_repository.POM_Login;
+import org.openqa.selenium.support.PageFactory;
+import pom_object_repository.POM_LoginPageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class TC_Login {
+public class TC_LoginPageFactory {
 
 
 
@@ -25,10 +25,11 @@ public class TC_Login {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        POM_Login pomLogin = new POM_Login(driver);
+        //replacing with page factory class utilities
+        POM_LoginPageFactory pomLogin = PageFactory.initElements(driver, POM_LoginPageFactory.class);
 
-        pomLogin.enterUserName();
-        pomLogin.enterPassword();
+        pomLogin.enterUserName("harrishvijay@gmail.com");
+        pomLogin.enterPassword("123456");
 
         js.executeScript("window.scrollBy(0,300)");
 

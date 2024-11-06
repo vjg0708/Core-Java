@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LoginDetails>
+   <loginitem1>
+       <url>
+           https://demo.opencart.com/en-gb?route=account/login
+       </url>
+       <username>
+           harrishvijay@gmail.com
+       </username>
+       <password>
+           123456
+       </password>
+   </loginitem1>
+    <loginitem2>
+        <url>
+            https://demo.opencart.com/en-gb?route=account/login
+        </url>
+        <username>
+            harrishvijay0708@gmail.com
+        </username>
+        <password>
+            123456
+        </password>
+    </loginitem2>
+</LoginDetails>

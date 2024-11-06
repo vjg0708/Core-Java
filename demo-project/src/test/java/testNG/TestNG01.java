@@ -1,4 +1,4 @@
-package TestNG;
+package testNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -15,8 +15,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
-
-import java.time.Duration;
 
 public class TestNG01 {
 
