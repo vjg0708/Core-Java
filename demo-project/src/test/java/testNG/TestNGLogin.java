@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
-import pom_object_repository.POM_LoginPageFactory;
+import com.opencart.pageobjects.POM_LoginPageFactory;
 
 import java.io.IOException;
 import java.io.InputStream;

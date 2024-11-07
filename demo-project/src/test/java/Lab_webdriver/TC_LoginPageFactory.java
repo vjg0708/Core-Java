@@ -5,7 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import pom_object_repository.POM_LoginPageFactory;
+import com.opencart.pageobjects.POM_LoginPageFactory;
 
 import java.util.concurrent.TimeUnit;
 

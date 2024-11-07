@@ -1,0 +1,37 @@
+ /*using property configuration*/
+
+        //getting project directory
+//        String projectPath = System.getProperty("user.dir");
+//        System.out.println(projectPath);
+
+       /* Properties properties = new Properties();
+        InputStream input = Files.newInputStream(Paths.get(projectpath+"\\login.properties"));
+
+        properties.load(input);
+
+        String opencartURl = properties.getProperty("url");
+        String username = properties.getProperty("username");
+        String password = properties.getProperty("password");*/
+
+        //reading xml file
+       /* File xmlFile = new File(projectpath+"\\Login.xml");
+
+        *//*getting data from XML using documnet builder*//*
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dbBuilder = dbFactory.newDocumentBuilder();
+        Document dbDoc = (Document) dbBuilder.parse(xmlFile);
+
+        //getting child nodes
+        NodeList nodeList = ((Node) dbDoc).getChildNodes();
+        Node node = nodeList.item(0);
+
+        System.out.println("List count : " + nodeList.getLength());
+        System.out.println("Node : " + node.getNodeName());
+        //getting elements from xml
+        Element element = (Element) node;
+
+        //storing the xml elements as string variables
+        String openCartUrl = element.getElementsByTagName("url").item(0).getTextContent();
+        String username = element.getElementsByTagName("username").item(0).getTextContent();
+        String password = element.getElementsByTagName("password").item(0).getTextContent();*/
+

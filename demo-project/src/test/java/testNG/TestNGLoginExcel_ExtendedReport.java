@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
 import org.xml.sax.SAXException;
-import pom_object_repository.POM_LoginPageFactory;
+import com.opencart.pageobjects.POM_LoginPageFactory;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
