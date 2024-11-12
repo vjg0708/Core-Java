@@ -138,7 +138,7 @@ public class OdysseyMain {
                     "C:\\Users\\harrish.vijay\\eclipse-workspace\\test-odysessy\\src\\test\\java\\com\\odyssey\\testreports\\login.jpg");
         }
 
-        Thread.sleep(2000);
+        
     }
 
 
