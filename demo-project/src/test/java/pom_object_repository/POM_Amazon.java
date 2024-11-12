@@ -1,5 +1,7 @@
 package pom_object_repository;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,24 +12,12 @@ public class POM_Amazon {
 
     WebDriver driver;
 
+    @Setter
+    @Getter
     String username;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+    @Setter
+    @Getter
     String password;
 
 
@@ -108,4 +98,14 @@ public class POM_Amazon {
         return  driver.findElement(By.xpath(xPath)).isDisplayed();
     }
 
+    public WebElement getElementById(String id){
+
+        return driver.findElement(By.id(id));
+
+    }
+
+    public WebElement getElementByXpath(String xpath){
+
+        return driver.findElement(By.xpath(xpath));
+    }
 }
