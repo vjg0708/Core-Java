@@ -1,4 +1,4 @@
-package stepdefinitions_amazon;
+package amazon;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,12 +14,13 @@ import org.testng.Assert;
 import pom_object_repository.POM_Amazon;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class LoginFeature {
+public class AmazonFlow {
 
     WebDriver driver;
     JavascriptExecutor js;
@@ -122,10 +123,75 @@ public class LoginFeature {
     public void check_whether_the_products_are_displayed() {
         // Write code here that turns the phrase above into concrete actions
 
-        WebElement searchResult = pomAmazon.getElementByXpath("//span[normalize-space()='1-16 of 311 results for']");
+        WebElement searchResult = pomAmazon.getElementByXpath("//span[@class='a-size-base a-color-base'][normalize-space()='Computers & Accessories']");
         String resultText = searchResult.getText();
-        Assert.assertEquals(resultText, "1-16 of 311 results for");
+        Assert.assertEquals(resultText, "Computers & Accessories");
     }
+
+    @Then("sort the product details")
+    public void sort_the_product_details() {
+        // Write code here that turns the phrase above into concrete actions
+        pomAmazon.clickActionByXpath("/html/body/div[1]/div[1]/span/div/h1/div/div[4]/div/div/form/span/span/span/span");
+        pomAmazon.clickActionByXpath("//*[@id=\"s-result-sort-select_5\"]");
+    }
+
+    @Then("open the product details")
+    public void open_the_product_details() {
+        // Write code here that turns the phrase above into concrete actions
+
+
+        pomAmazon.clickActionByXpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[2]/div/div/span/div/div/div/div[2]/div/div/div[1]/h2/a");
+        List<String> window = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(window.get(1));
+
+    }
+
+    @Then("add the product to cart")
+    public void add_the_product_to_cart() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        Thread.sleep(3000);
+
+        js.executeScript("window.scrollBy(0,380)");
+        WebElement addToCart = pomAmazon.getElementByXpath("//input[@id='add-to-cart-button']");
+
+        addToCart.click();
+
+        WebElement popUpCart = pomAmazon.getElementByXpath("//div[@class='a-scroller attach-accessory-section a-scroller-vertical']");
+        Assert.assertTrue(popUpCart.isDisplayed());
+
+        pomAmazon.clickActionByXpath("//a[@id='attach-close_sideSheet-link']");
+
+
+    }
+
+    @Then("verify the cart has the product")
+    public void verify_the_cart_has_the_product() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        Thread.sleep(3000);
+        js.executeScript("window.scrollTo(0,0)");
+        pomAmazon.clickActionByXpath("//a[@id='nav-cart']");
+
+        WebElement cartItem = pomAmazon.getElementById("sc-active-cart");
+        Assert.assertTrue(cartItem.isDisplayed());
+
+
+    }
+
+    @Then("delete the product from the cart")
+    public void delete_the_product_from_the_cart() {
+        // Write code here that turns the phrase above into concrete actions
+        pomAmazon.clickActionByXpath("//button[@aria-label='Decrease quantity by one']");
+    }
+
+    @Then("logout from the page")
+    public void logout_from_the_page() {
+        // Write code here that turns the phrase above into concrete actions
+        pomAmazon.toggleActionsByXpath("/html/body/div[1]/header/div/div[1]/div[3]/div/a[2]",
+                "hover");
+        pomAmazon.checkElementsDisplayedByXpath("//span[normalize-space()='Sign Out']");
+        System.out.println("logout successful...");
+    }
+
 
 
     @When("enter invalid username and password")

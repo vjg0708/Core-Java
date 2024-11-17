@@ -11,6 +11,12 @@
       Then verify the login
       Given enter product name in search
       Then check whether the products are displayed
+      And sort the product details
+      And open the product details
+      And add the product to cart
+      Then verify the cart has the product
+      And delete the product from the cart
+      Then logout from the page
 
     @tag3
     Scenario: Invalid Login
